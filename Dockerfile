@@ -7,9 +7,7 @@ WORKDIR /build
 # Copy the source code into the image for building
 COPY . /build
 RUN chmod 777 ./mvnw
-COPY ./settings.xml /usr/share/maven/conf/
-ARG MAVEN_OPTS
-ENV MAVEN_OPTS=${MAVEN_OPTS}
+
 # Build
 RUN ./mvnw --no-transfer-progress native:compile -Pnative
 
